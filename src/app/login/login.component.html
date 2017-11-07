@@ -1,5 +1,5 @@
-<div class="ui container">
-    <div class="ui centered card" *ngIf="afAuth.authState | async; let user; else showLogin">
+<div class="ui container" *ngIf="afAuth.authState | async; let user; else showLogin">
+    <div class="ui centered card">
         <div class="image">
             <img src="{{ user.photoURL }}">
         </div>
@@ -17,13 +17,13 @@
             </span>
         </div>
     </div>
-    <div class="ui centered basic segment">
-        <button class="ui button primary" (click)="logout()">로그아웃</button>
-        <button class="ui button">마이페이지</button>
-        <button class="ui button">포트폴리오관리</button>
-        <button class="ui button">결제관리</button>
+    <div class="ui container">
+        <button class="ui button centered primary" (click)="logout()">로그아웃</button>
+        <button class="ui button centered">포트폴리오관리</button>
+        <button class="ui button centered">결제관리</button>
     </div>
 </div>
+
 <!-- 
 <div class="ui two container middle aligned center grid aligned">
     <div class="column">
@@ -66,7 +66,15 @@
             <button (click)="login()" class="ui google primary button">
               <i class="google icon"></i>
               google
-        </button>
+            </button>
+            <button (click)="login()" class="ui facebook button">
+                <i class="facebook icon"></i>
+                facebook
+            </button>
+            <button (click)="login()" class="ui youtube button">
+                    <i class="youtube icon"></i>
+                    youtube
+                </button>
         </div>
     </div>
 </ng-template>
