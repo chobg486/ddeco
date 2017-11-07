@@ -1,13 +1,33 @@
-<p style="margin-top:50px;">
-  about works!
-</p>
-<ul class="ui">
-  <li *ngFor="let item of items | async">
-    <input type="text" #updatetext [value]="item.text" />
-    <button (click)="updateItem(item.key, updatetext.value)">Update</button>
-    <button (click)="deleteItem(item.key)">Delete</button>
-  </li>
-</ul>
-<input type="text" #newitem />
-<button (click)="addItem(newitem.value)">Add</button>
-<button (click)="deleteEverything()">Delete All</button>
+<h2 style="margin-top:50px;">
+    about works!
+</h2>
+<div class="ui middle aligned divided list">
+    <div class="item" *ngFor="let item of items | async">
+        <div class="ui input">
+            <input type="text" #updatetext [value]="item.text" />
+        </div>
+        <div class="right floated content">
+            <button class="ui button" (click)="updateItem(item.key, updatetext.value)">Update</button>
+            <button class="ui button" (click)="deleteItem(item.key)">Delete</button>
+        </div>
+    </div>
+</div>
+
+<div class="ui input">
+    <input type="text" #newitem placeholder="Add text..." />
+</div>
+<button (click)="addItem(newitem.value)" class="ui button">Add</button>
+<button (click)="deleteEverything()" class="ui button">Delete All</button>
+<!-- 
+<div class="ui middle aligned divided list">
+    <div class="item">
+        <div class="right floated content">
+            <div class="ui button">Update</div>
+            <div class="ui button">Delete</div>
+        </div>
+        <img class="ui avatar image" src="/assets/images/lena.png">
+        <div class="content">
+            Lena
+        </div>
+    </div>
+</div> -->
