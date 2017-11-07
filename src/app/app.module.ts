@@ -16,6 +16,7 @@ import { LocationComponent } from './location/location.component';
 import { GooglemapComponent } from './googlemap/googlemap.component';
 import { LoginComponent } from './login/login.component';
 import { GeoService } from './geo.service';
+import { GmapComponent } from './admin/gmap/gmap.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { GeoService } from './geo.service';
     MainComponent,
     LocationComponent,
     GooglemapComponent,
-    LoginComponent
+    LoginComponent,
+    GmapComponent
   ],
   imports: [
     BrowserModule,
@@ -63,6 +65,10 @@ import { GeoService } from './geo.service';
       {
         path: 'login',
         component: LoginComponent
+      },
+      {
+        path: 'gmap',
+        component: GmapComponent
       }
     ])
   ],

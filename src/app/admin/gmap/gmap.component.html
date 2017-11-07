@@ -1,0 +1,64 @@
+<div class="ui container">
+    <p>
+        gmap works!
+    </p>
+
+    <div class="heading">
+        <h1>Auto Complete Geo Coordinates</h1>
+        <h4>Using Google Map's Places Library and Vue.js v2.0.</h4>
+    </div>
+
+    <div class="container" id="app">
+        <form>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><span class="fa fa-compass"></span></div>
+                    <input id="autocomplete" class="form-control controls" type="text" placeholder="Locate Your Address" v-model="address">
+                    <div class="input-group-addon"><span class="fa fa-home"></span></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><span class="fa fa-arrows-h"></span></div>
+                    <input class="form-control" type="text" placeholder="Latitude" v-model="lat" readonly>
+                    <div class="input-group-addon"><span class="fa fa-map-marker"></span></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><span class="fa fa-arrows-v"></span></div>
+                    <input class="form-control" type="text" placeholder="Longitude" v-model="lng" readonly>
+                    <div class="input-group-addon"><span class="fa fa-map-marker"></span></div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            googleMap: '',
+            address: '',
+            lat: '',
+            lng: ''
+        },
+        mounted: function() {
+            this.googleMap = new google.maps.places.Autocomplete((document.getElementById('autocomplete')), {
+                types: ['geocode']
+            });
+            this.googleMap.addListener('place_changed', function() {
+                this.fillInAddress(this.googleMap.getPlace());
+            }.bind(this));
+        },
+        methods: {
+            fillInAddress: function(place) {
+                this.lat = place.geometry.location.lat();
+                this.lng = place.geometry.location.lng();
+                this.address = place.name;
+            },
+            canSubmit: function() {}
+        }
+    });
+</script>

@@ -5,6 +5,14 @@
     <a class="item" routerLink="/about">CRUD</a>
     <a class="item" routerLink="/dashboard">Filter</a>
     <a class="item" routerLink="/googlemap">Googlemap</a>
+    <div class="ui dropdown item">
+        Admin <i class="dropdown icon"></i>
+        <div class="menu">
+            <a class="item" routerLink="/gmap">map add</a>
+            <a class="item">setting</a>
+            <a class="item">notice</a>
+        </div>
+    </div>
     <div class="right menu">
         <div class="" *ngIf="afAuth.authState | async as user; else showLogin">
             <a class="item" routerLink="/login">
