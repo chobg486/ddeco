@@ -1,27 +1,29 @@
-<!-- <div class="ui aligned container centered" *ngIf="afAuth.authState | async; let user; else showLogin">
-    <h1>Hello {{ user.displayName }}!</h1>
-    <img src="{{ user.photoURL }}" alt="">
-    <button class="ui button primary" (click)="logout()">Logout</button>
-</div> -->
-<div class="ui centered card" *ngIf="afAuth.authState | async; let user; else showLogin">
-    <div class="image">
-        <img src="{{ user.photoURL }}">
-    </div>
-    <div class="content">
-        <a class="header">{{ user.displayName }}</a>
-        <div class="description">test</div>
-    </div>
-    <div class="extra content">
-        <span class="left floated like">
+<div class="ui container">
+    <div class="ui centered card" *ngIf="afAuth.authState | async; let user; else showLogin">
+        <div class="image">
+            <img src="{{ user.photoURL }}">
+        </div>
+        <div class="content">
+            <a class="header">{{ user.displayName }}</a>
+            <div class="description">test</div>
+        </div>
+        <div class="extra content">
+            <span class="left floated like">
               <i class="like icon"></i>
               Like
             </span>
-        <span class="right floated">
+            <span class="right floated">
                 <button class="ui button mini primary right floated" (click)="logout()">Logout</button>
             </span>
+        </div>
+    </div>
+    <div class="ui centered basic segment">
+        <button class="ui button primary" (click)="logout()">로그아웃</button>
+        <button class="ui button">마이페이지</button>
+        <button class="ui button">포트폴리오관리</button>
+        <button class="ui button">결제관리</button>
     </div>
 </div>
-
 <!-- 
 <div class="ui two container middle aligned center grid aligned">
     <div class="column">
@@ -59,10 +61,12 @@
 </div> -->
 
 <ng-template #showLogin>
-    <div class="ui card centered">
-        <button (click)="login()" class="ui google primary button">
+    <div class="ui container">
+        <div class="ui card centered">
+            <button (click)="login()" class="ui google primary button">
               <i class="google icon"></i>
               google
         </button>
+        </div>
     </div>
 </ng-template>
