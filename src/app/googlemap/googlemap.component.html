@@ -1,0 +1,41 @@
+<div *ngIf="lat && lng" class="mapContainer">
+    <div class="listWrapper">
+        <div class="ui divided items">
+            <div class="item" *ngFor="let marker of markers">
+                <!-- <div class="image">
+                    <img src="/images/wireframe/image.png">
+                </div> -->
+                <div class="content">
+                    <a class="listHeader header" (click)="selectPartner(marker.location)">interior</a>
+                    <div class="meta">
+                        <span class="cinema">{{marker.distance.toFixed()}}km</span>
+                    </div>
+                    <div class="description">
+                        <p></p>
+                    </div>
+                    <!-- <div class="extra">
+                        <a class="ui tag mini label">New</a>
+                        <a class="ui red tag mini label">Upcoming</a>
+                        <a class="ui teal tag mini label">Featured</a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="12">
+        <agm-marker [latitude]="lat" [longitude]="lng">
+            <agm-info-window [isOpen]="isinfoWindow">
+                <h3><strong>현재위치</strong></h3>
+                <p>You are here!</p>
+            </agm-info-window>
+        </agm-marker>
+
+        <!--Nearby User Locations -->
+        <agm-marker *ngFor="let marker of markers" [latitude]="marker.location[0]" [longitude]="marker.location[1]">
+            <agm-info-window>
+                <h3><strong>Location Details</strong></h3>
+                <p>You are {{ marker.distance.toFixed() }} kilometers from this point</p>
+            </agm-info-window>
+        </agm-marker>
+    </agm-map>
+</div>

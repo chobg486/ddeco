@@ -1,0 +1,25 @@
+agm-map {
+    height: 600px;
+}
+
+.mapContainer {
+    position: relative;
+}
+
+.listWrapper {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 300px;
+    height: 100%;
+    z-index: 100;
+    padding: 30px;
+    background-color: #ffffff;
+    overflow-y: auto;
+    margin-top: 20px;
+}
+
+.listWrapper ul li {
+    list-style: none;
+    padding: 10px;
+}

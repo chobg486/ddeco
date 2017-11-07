@@ -1,0 +1,14 @@
+<p>
+    location works!
+</p>
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]="12">
+    <agm-marker *ngFor="let m of map | async" [latitude]="m.lat" [longitude]="m.lng">
+        <agm-info-window>{{m.name}}</agm-info-window>
+    </agm-marker>
+</agm-map>
+
+<ul>
+    <li class="text" *ngFor="let m of map | async">
+        {{m.lng}}, {{m.lat}} , {{m.name}}
+    </li>
+</ul>
