@@ -1,23 +1,26 @@
-<h2 style="margin-top:50px;">
-    about works!
-</h2>
-<div class="ui middle aligned divided list">
-    <div class="item" *ngFor="let item of items | async">
-        <div class="ui input">
-            <input type="text" #updatetext [value]="item.text" />
-        </div>
-        <div class="right floated content">
-            <button class="ui button" (click)="updateItem(item.key, updatetext.value)">Update</button>
-            <button class="ui button" (click)="deleteItem(item.key)">Delete</button>
+<div class="ui container centered">
+    <div class="ui basic very padded segment">
+        <h2>CRUD works!</h2>
+    </div>
+    <div class="ui middle aligned divided list">
+        <div class="item" *ngFor="let item of items | async">
+            <div class="ui transparent input padded">
+                <input type="text" #updatetext [value]="item.text" />
+            </div>
+            <div class="right floated content">
+                <button class="ui button" (click)="updateItem(item.key, updatetext.value)">Update</button>
+                <button class="ui button" (click)="deleteItem(item.key)">Delete</button>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="ui input">
-    <input type="text" #newitem placeholder="Add text..." />
+    <div class="ui input">
+        <input type="text" #newitem placeholder="Add text..." />
+    </div>
+
+    <button (click)="addItem(newitem.value)" class="ui primary submit labeled icon button"><i class="icon edit"></i> Add Comment</button>
+    <button (click)="deleteEverything()" class="ui button">Delete All</button>
 </div>
-<button (click)="addItem(newitem.value)" class="ui button">Add</button>
-<button (click)="deleteEverything()" class="ui button">Delete All</button>
 <!-- 
 <div class="ui middle aligned divided list">
     <div class="item">

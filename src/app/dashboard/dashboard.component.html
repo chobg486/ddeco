@@ -1,23 +1,33 @@
-<p>dashboard</p>
+<div class="ui centered container">
+    <div class="ui basic very segment padded">
+        <h2>Filter List</h2>
+    </div>
+    <div>
+        <h4>Filter by size</h4>
+        <div class="ui buttons">
+            <button class="ui button" (click)="filterBy('small')">Small</button>
+            <button class="ui button" (click)="filterBy('medium')">Medium</button>
+            <button class="ui button" (click)="filterBy('large')">Large</button>
+            <button class="ui button" (click)="filterBy('x-large')">Extra Large</button>
+            <button class="ui button" (click)="filterBy(null)" *ngIf="this.size$.getValue()"><em>clear filter</em></button>
+        </div>
+    </div>
+    <div class="ui list" *ngIf="items$ | async; let items; else loading">
 
-<h1>Firebase widgets!</h1>
-<div *ngIf="items$ | async; let items; else loading">
-  <ul>
-    <li *ngFor="let item of items">
-      {{ item.payload.val().name }}
-      <code>{{ item.payload.key }}</code>
-    </li>
-  </ul>
-  <div *ngIf="items.length === 0">No results, try clearing filters</div>
-</div>
-<ng-template #loading>Loading&hellip;</ng-template>
-<div>
-  <h4>Filter by size</h4>
-  <button (click)="filterBy('small')">Small</button>
-  <button (click)="filterBy('medium')">Medium</button>
-  <button (click)="filterBy('large')">Large</button>
-  <button (click)="filterBy('x-large')">Extra Large</button>
-  <button (click)="filterBy(null)" *ngIf="this.size$.getValue()">
-    <em>clear filter</em>
-  </button>
+        <div class="ui segment basic" *ngFor="let item of items">
+            {{ item.payload.val().name }}
+            <code>{{ item.payload.key }}</code>
+        </div>
+
+        <div class="ui segment basic" *ngIf="items.length === 0">검색결과가 없습니다.</div>
+    </div>
+    <ng-template #loading>
+        <div class="ui segment basic">
+            <div class="ui active inverted dimmer">
+                <div class="ui text loader">Loading</div>
+            </div>
+            <p></p>
+        </div>
+    </ng-template>
+
 </div>
