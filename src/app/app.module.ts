@@ -5,7 +5,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
-
+import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
 import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
@@ -36,6 +36,7 @@ import { GmapComponent } from './admin/gmap/gmap.component';
     }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
+    Ng4GeoautocompleteModule.forRoot(),
     RouterModule.forRoot([
       {
         path: '',

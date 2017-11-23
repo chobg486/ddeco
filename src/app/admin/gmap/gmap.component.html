@@ -7,7 +7,12 @@
         <h1>Auto Complete Geo Coordinates</h1>
         <h4>Using Google Map's Places Library and Vue.js v2.0.</h4>
     </div>
-
+    <div id='container'>
+        <div id='element1'><p>Draggable Element </p></div>
+        <div id='element'></div>
+    </div>
+<div> <button id="normalbtn" class="ui button">Normal</button></div>
+<ng4geo-autocomplete (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete>
     <div class="container" id="app">
         <form>
             <div class="form-group">
