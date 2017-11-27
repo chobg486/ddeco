@@ -17,6 +17,7 @@ import { GooglemapComponent } from './googlemap/googlemap.component';
 import { LoginComponent } from './login/login.component';
 import { GeoService } from './geo.service';
 import { GmapComponent } from './admin/gmap/gmap.component';
+import { ProfileComponent } from './admin/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { GmapComponent } from './admin/gmap/gmap.component';
     LocationComponent,
     GooglemapComponent,
     LoginComponent,
-    GmapComponent
+    GmapComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -70,6 +72,10 @@ import { GmapComponent } from './admin/gmap/gmap.component';
       {
         path: 'gmap',
         component: GmapComponent
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent
       }
     ])
   ],
